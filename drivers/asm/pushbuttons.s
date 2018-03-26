@@ -1,7 +1,7 @@
 	.text
 	.equ BT_DATA, 0xFF200050
 	.equ INRPT_MASK, 0xFF200058
-	.equ EDGE_CAP, 0x1000005C
+	.equ EDGE_CAP, 0xFF20005C //0x1000005C
 
 	.global read_PB_data_ASM
 	.global PB_data_is_pressed_ASM
@@ -29,10 +29,9 @@ PB_data_is_pressed_ASM:
 	BX LR
 
 read_PB_edgecap_ASM:
-	PUSH {R1, LR}
 	LDR R1, =EDGE_CAP
 	LDR R0, [R1]
-	POP {R1, LR}
+	STR R0, [R1]
 	BX LR
 
 PB_edgecap_is_pressed_ASM:

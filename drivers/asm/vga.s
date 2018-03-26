@@ -92,14 +92,11 @@ VGA_write_char_ASM:
 	STRB R2, [R3]
 	BX LR
 	
-	// R5 = HEX_ASCII
 	// R0 = x
 	// R1 = y
 	// R2 = character
 VGA_write_byte_ASM:
 	PUSH {LR, R1-R9}
-	MOV R4, R2
-	LSR R4, R4, #4
 	LDR R5, =HEX_ASCII
 
 	PUSH {R2}
