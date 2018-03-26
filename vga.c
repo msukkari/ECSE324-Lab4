@@ -57,7 +57,8 @@ void main()
 		int pb4 = PB_data_is_pressed_ASM(PB3);
 		int switches = read_slider_switches_ASM();
 
-		if(pb0 && switches) test_byte();
+		if(pb0 && switches) 
+		test_byte();
 		else if(pb0) test_char();
 		else if(pb1) test_pixel();
 		else if(pb3) VGA_clear_charbuff_ASM();
