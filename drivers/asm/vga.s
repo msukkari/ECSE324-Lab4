@@ -97,6 +97,15 @@ VGA_write_char_ASM:
 	// R2 = character
 VGA_write_byte_ASM:
 	PUSH {LR, R1-R9}
+	CMP R0, #0
+	BXLT LR
+	CMP R1, #0
+	BXLT LR
+	CMP R0, #80
+	BXGE LR
+	CMP R1, #60
+	BXGE LR
+	
 	LDR R5, =HEX_ASCII
 
 	PUSH {R2}
