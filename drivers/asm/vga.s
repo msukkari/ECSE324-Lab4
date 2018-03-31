@@ -100,9 +100,9 @@ VGA_write_byte_ASM:
 	BXLT LR
 	CMP R1, #0
 	BXLT LR
-	CMP R0, #80
+	CMP R0, #68
 	BXGE LR
-	CMP R1, #60
+	CMP R1, #78
 	BXGE LR
 
 	PUSH {LR, R1-R9}
@@ -120,9 +120,6 @@ VGA_write_byte_ASM:
 	LDRB R2, [R5, R2]
 	BL VGA_write_char_ASM
 	ADD R0, R0, #1
-
-	MOV R2, #32
-	BL VGA_write_char_ASM
 
 	POP {LR, R1-R9}
 	BX LR
